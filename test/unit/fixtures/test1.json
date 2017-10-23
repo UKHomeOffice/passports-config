@@ -1,0 +1,10 @@
+{
+    "value1": "test1-value1",
+    "value2": "test1-value2",
+    "value3": "test1-value3",
+    "deepObject": {
+        "value1": "test1-deep",
+        "array1": [ "first-value", "second-value"],
+        "obj1": { "deep-object": "deep-value" }
+    }
+}

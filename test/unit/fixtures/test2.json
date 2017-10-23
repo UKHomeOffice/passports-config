@@ -1,0 +1,8 @@
+{
+    "value1": "test2-value1",
+    "value2": "test2-value2",
+    "value4": "test2-value4",
+    "deepObject": {
+        "value1": "test2-deep"
+    }
+}

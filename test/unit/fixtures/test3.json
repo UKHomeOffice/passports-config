@@ -1,0 +1,8 @@
+{
+    "value2": "test3-value2",
+    "value5": "test3-value5",
+    "deepObject": {
+        "value1": "test3-deep",
+        "array1": [ "new value" ]
+    }
+}

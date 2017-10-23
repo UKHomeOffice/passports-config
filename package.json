@@ -28,5 +28,17 @@
     "mocha": "^4.0.0",
     "sinon": "^4.0.1",
     "sinon-chai": "^2.10.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UKHomeOffice/passports-config.git"
+  },
+  "keywords": [
+    "hmpo",
+    "config"
+  ],
+  "bugs": {
+    "url": "https://github.com/UKHomeOffice/passports-config/issues"
+  },
+  "homepage": "https://github.com/UKHomeOffice/passports-config#readme"
 }

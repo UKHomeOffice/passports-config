@@ -22,7 +22,7 @@ describe.only('Config Loader', () => {
     });
 
     it('exports a class function', () => {
-        Config.should.be.a.function;
+        Config.should.be.a('function');
     });
 
     describe('constructor', () => {

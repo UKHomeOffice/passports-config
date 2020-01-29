@@ -4,30 +4,30 @@
   "description": "Config loader",
   "main": "./lib/config.js",
   "scripts": {
-    "test": "npm run lint && npm run unit && npm run cover && npm run check-coverage",
-    "lint": "eslint .",
-    "unit": "mocha ./test/unit --recursive --require ./test/unit/helper",
-    "cover": "istanbul cover _mocha -- -R dot ./test/unit --recursive --require ./test/unit/helper",
-    "check-coverage": "istanbul check-coverage",
-    "prepush": "npm test"
+    "test": "npm run test:unit",
+    "pretest": "npm run test:lint",
+    "posttest": "npm run test:coverage && npm audit",
+    "test:unit": "nyc --reporter=lcov --reporter=text-summary mocha ./test/unit --recursive --require ./test/unit/helper",
+    "test:coverage": "nyc check-coverage",
+    "test:lint": "eslint ."
   },
   "author": "PEX",
   "license": "MIT",
   "dependencies": {
-    "app-root-path": "^2.0.1",
+    "app-root-path": "^3.0.0",
     "debug": "^4.1.1",
     "deep-clone-merge": "^1.3.0",
     "js-yaml": "^3.10.0",
-    "json5": "^2.1.0"
+    "json5": "^2.1.1"
   },
   "devDependencies": {
     "chai": "^4.1.2",
-    "eslint": "^6.0.1",
-    "husky": "^3.0.0",
-    "istanbul": "^0.4.5",
-    "mocha": "^6.1.4",
-    "sinon": "^7.3.2",
-    "sinon-chai": "^3.3.0"
+    "eslint": "^6.8.0",
+    "husky": "^4.2.1",
+    "mocha": "^7.0.1",
+    "nyc": "^15.0.0",
+    "sinon": "^8.1.1",
+    "sinon-chai": "^3.4.0"
   },
   "repository": {
     "type": "git",
@@ -40,5 +40,20 @@
   "bugs": {
     "url": "https://github.com/UKHomeOffice/passports-config/issues"
   },
-  "homepage": "https://github.com/UKHomeOffice/passports-config#readme"
+  "husky": {
+    "hooks": {
+      "pre-push": "npm test"
+    }
+  },
+  "nyc": {
+    "all": true,
+    "exclude": [
+      "coverage/**",
+      "test/**"
+    ],
+    "lines": 100,
+    "branches": 100,
+    "functions": 100,
+    "statements": 100
+  }
 }
